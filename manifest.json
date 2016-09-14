@@ -1,0 +1,32 @@
+{
+	"name" : "Production ZONE",
+	"version" : "1.0",
+	"description" : "Add red shadow border on site, if is prosuction site",
+  "manifest_version": 2,
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": [
+      "content-script.js"
+    ],
+    "run_at": "document_end"
+  }]
+}
